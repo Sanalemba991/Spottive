@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Entrance animations for About component */
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-60px) skewX(6deg);
+	}
+	60% {
+		opacity: 0.9;
+		transform: translateX(10px) skewX(0deg);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0) skewX(0deg);
+	}
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes slideInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(60px) skewX(-6deg);
+	}
+	60% {
+		opacity: 0.9;
+		transform: translateX(-10px) skewX(0deg);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0) skewX(0deg);
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.enter-from-left,
+.enter-from-right {
+	opacity: 0;
+	will-change: transform, opacity;
+	transition: opacity 360ms ease-out;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.enter-from-left.in-view {
+	animation: slideInLeft 900ms cubic-bezier(.2,.9,.2,1) both;
 }
+
+.enter-from-right.in-view {
+	animation: slideInRight 900ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+/* small visual tweak matching the design */
+.about-vision, .about-mission {
+	backface-visibility: hidden;
+}
+

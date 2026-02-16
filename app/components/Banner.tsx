@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, RefreshCw } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function DJIBannerComplete() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,7 +11,6 @@ export default function DJIBannerComplete() {
     {
       id: 'agras-t100',
       name: 'DJI Air 3S',
-      otherProducts: ['DJI Mavic 4 Pro', 'Osmo Action 6'],
       subtitle: 'Smart Agricultural Equipment',
       title: 'DJI AGRAS T100',
       tagline: 'Big Drone, Big Jobs.',
@@ -24,7 +23,6 @@ export default function DJIBannerComplete() {
     {
       id: 'mavic-4-pro',
       name: 'DJI Mavic 4 Pro',
-      otherProducts: ['DJI Air 3S', 'Osmo Action 6'],
       subtitle: 'Professional Aerial Photography',
       title: 'DJI MAVIC 4 PRO',
       tagline: 'Excellence in Every Frame.',
@@ -37,7 +35,6 @@ export default function DJIBannerComplete() {
     {
       id: 'osmo-action-6',
       name: 'Osmo Action 6',
-      otherProducts: ['DJI Mavic 4 Pro', 'DJI Air 3S'],
       subtitle: 'Next-Level Action Camera',
       title: 'OSMO ACTION 6',
       tagline: 'Capture the Impossible.',
@@ -50,7 +47,6 @@ export default function DJIBannerComplete() {
     {
       id: 'mini-4-pro',
       name: 'DJI Mini 4 Pro',
-      otherProducts: ['DJI Mavic 4 Pro', 'DJI Air 3S'],
       subtitle: 'Compact Innovation',
       title: 'DJI MINI 4 PRO',
       tagline: 'Small Size, Big Impact.',
@@ -78,16 +74,22 @@ export default function DJIBannerComplete() {
     setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
   };
 
-  const handleProductClick = (productName: string) => {
-    const productIndex = banners.findIndex(b => b.name === productName);
-    if (productIndex !== -1) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentSlide(productIndex);
-        setIsTransitioning(false);
-      }, 300);
+  // Get 3 visible items (prev, current, next) with circular wrapping
+  const getVisibleItems = () => {
+    const items = [];
+    for (let i = -1; i <= 1; i++) {
+      const index = (currentSlide + i + banners.length) % banners.length;
+      items.push({
+        banner: banners[index],
+        actualIndex: index,
+        position: i, // -1 (top), 0 (middle), 1 (bottom)
+        isActive: i === 0
+      });
     }
+    return items;
   };
+
+  const visibleItems = getVisibleItems();
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gray-900 group">
@@ -149,7 +151,7 @@ export default function DJIBannerComplete() {
         </div>
       ))}
 
-      {/* Left Navigation Arrow - Only visible on hover */}
+      {/* Left Navigation Arrow */}
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-white/60 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 z-30"
@@ -158,7 +160,7 @@ export default function DJIBannerComplete() {
         <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
       </button>
 
-      {/* Right Navigation Arrow - Only visible on hover */}
+      {/* Right Navigation Arrow */}
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-white/60 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 z-30"
@@ -167,89 +169,52 @@ export default function DJIBannerComplete() {
         <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
       </button>
 
-      {/* Navigation Menu - Fixed Position at Bottom */}
-      <div className="absolute left-4 md:left-6 bottom-4 md:bottom-6 z-30">
-        <div className="flex flex-col gap-0.5">
-          {banners.map((banner, index) => (
+      {/* Left Sidebar Navigation - 3 Items Visible (Prev, Current, Next) */}
+      <div className="absolute left-1 md:left-2 bottom-6 md:bottom-8 z-30">
+        <div className="flex flex-col pl-1 md:pl-2 transition-all duration-700">
+          {visibleItems.map(({ banner, actualIndex, position, isActive }) => (
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`group flex items-center gap-2 transition-all duration-300 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-60 hover:opacity-80'
+              key={`${actualIndex}-${position}`}
+              onClick={() => {
+                if (isTransitioning) return;
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  setCurrentSlide(actualIndex);
+                  // keep transition lock for the same duration as CSS
+                  setTimeout(() => setIsTransitioning(false), 700);
+                }, 10);
+              }}
+              className={`group relative flex items-center gap-1 md:gap-1.5 py-1 md:py-1 transition-all duration-700 ease-in-out ${
+                isActive ? 'z-10' : 'z-0'
               }`}
               aria-label={`Go to ${banner.name}`}
             >
-              {/* Vertical Line Indicator */}
-              <div className="flex flex-col items-center">
-                <div
-                  className={`transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'w-0.5 h-10 bg-white'
-                      : 'w-0.5 h-6 bg-white/40 group-hover:h-8 group-hover:bg-white/60'
-                  }`}
-                />
-              </div>
-
               {/* Product Name */}
               <span
-                className={`text-white text-xs md:text-sm font-light tracking-wide transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'opacity-100 font-medium'
-                    : 'opacity-70 group-hover:opacity-90'
+                className={`font-light tracking-wide transition-all duration-700 ease-in-out whitespace-nowrap ${
+                  isActive
+                    ? 'text-white text-xs md:text-sm font-medium opacity-100 blur-0'
+                    : 'text-white/35 text-[10px] md:text-xs blur-[1px] scale-90'
                 }`}
+                style={{
+                  filter: isActive ? 'none' : 'blur(1px)',
+                  transition: 'all 0.7s ease-in-out',
+                }}
               >
                 {banner.name}
               </span>
+
+              {/* Active Glow Effect */}
+              {isActive && (
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-10 bg-white/10 blur-lg animate-pulse-slow transition-opacity duration-700" />
+              )}
             </button>
           ))}
         </div>
       </div> 
+      
       {/* Inline Styles for Animations */}
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
         .animate-fadeInUp {
           animation: fadeInUp 0.8s ease-out forwards;
           opacity: 0;
@@ -280,6 +245,34 @@ export default function DJIBannerComplete() {
 
         .animation-delay-600 {
           animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
       `}</style>
     </div>
