@@ -37,7 +37,7 @@ export default function Testimonial() {
     return () => clearInterval(interval);
   }, []);
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 

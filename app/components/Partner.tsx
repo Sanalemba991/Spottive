@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import { Variants } from 'framer-motion';
 type PartnerProps = {
   imageUrl?: string;
   alt?: string;
@@ -18,7 +18,7 @@ export default function Partner({
     threshold: 0.1,
   });
 
-  const containerVariants = {
+  const containerVariants: Variants  = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -29,7 +29,7 @@ export default function Partner({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -41,7 +41,7 @@ export default function Partner({
     },
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,

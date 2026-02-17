@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Handshake } from 'lucide-react';
 import { useInView as useInViewIntersection } from 'react-intersection-observer';
@@ -771,15 +772,14 @@ export default function HeroSection() {
                     {slide.description}
                   </p>
                   <div className="pt-3">
-                    <a
+                    <Link
                       href={slide.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-sm px-6 py-2.5 rounded-full border border-white/20 transition-all duration-300 hover:[&>svg]:translate-x-1"
                     >
                       <span>Discover More</span>
                       <ChevronRight className="w-3 h-3 transition-transform duration-200" />
-                    </a>
+                    </Link>
                   </div>
 
                 </motion.div>

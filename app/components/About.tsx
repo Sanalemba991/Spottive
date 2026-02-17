@@ -4,7 +4,7 @@ import React from 'react';
 import { Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import { Variants } from 'framer-motion';
 const About = () => {
     // Observer for the main banner
     const [refBanner, inViewBanner] = useInView({
@@ -37,7 +37,7 @@ const About = () => {
 
     const bannerBackground = 'https://images.unsplash.com/photo-1718421280278-4402ea0c00eb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
-    const bannerContainerVariants = {
+    const bannerContainerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -48,7 +48,7 @@ const About = () => {
         },
     };
 
-    const bannerTitleVariants = {
+    const bannerTitleVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
@@ -57,7 +57,7 @@ const About = () => {
         },
     };
 
-    const bannerFadeInUpVariants = {
+    const bannerFadeInUpVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
@@ -66,7 +66,7 @@ const About = () => {
         },
     };
 
-    const bannerSlideInRightVariants = {
+    const bannerSlideInRightVariants: Variants = {
         hidden: { opacity: 0, x: 20 },
         visible: {
             opacity: 1,
@@ -75,7 +75,7 @@ const About = () => {
         },
     };
 
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -86,7 +86,7 @@ const About = () => {
         },
     };
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 20, scale: 0.98 },
         visible: {
             opacity: 1,
@@ -99,7 +99,7 @@ const About = () => {
         },
     };
 
-    const iconAnimation = {
+    const iconAnimation: Variants = {
         hover: {
             scale: 1.15,
             rotate: [0, 5, -5, 0],
@@ -107,7 +107,7 @@ const About = () => {
         }
     };
 
-    const sectionVariants = {
+    const sectionVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
