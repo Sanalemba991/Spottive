@@ -145,7 +145,7 @@ export default function DahuaPage() {
                 color: '#111',
               }}
             >
-              Dahua Distributor at the
+              <span className='text-red-500'>Dahua</span> Distributor at the
               <br />
               Forefront of CCTV Solutions
             </h1>
@@ -185,7 +185,7 @@ export default function DahuaPage() {
               color: '#111',
             }}
           >
-            The Imperative for Enhanced CCTV Systems by Dahua
+            The Imperative for Enhanced CCTV Systems by <span className='text-red-500'>Dahua</span>
           </h2>
           <p
             style={{
@@ -315,7 +315,7 @@ export default function DahuaPage() {
               marginTop: 0,
             }}
           >
-            Dahua&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
+           <span className='text-red-500'>Dahua</span>&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
             Sets A High Benchmark. At Spottive Technologies, We&apos;re Inspired To Deliver Tailor-Made
             Solutions That Resonate With Your Unique Needs. Our Team Remains Updated With The
             Industry&apos;s Cutting-Edge Advancements, Promising Top-Tier Guidance, Unwavering Support,

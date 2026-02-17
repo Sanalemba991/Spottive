@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Handshake } from 'lucide-react';
 import { useInView as useInViewIntersection } from 'react-intersection-observer';
 
@@ -382,6 +383,8 @@ export default function HeroSection() {
   });
 
   const bannerBackground = 'https://images.unsplash.com/photo-1718421280278-4402ea0c00eb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
+  const router = useRouter();
 
   const bannerContainerVariants = {
     hidden: { opacity: 0 },
@@ -886,6 +889,7 @@ export default function HeroSection() {
           <motion.button
             variants={itemVariants}
             className="px-8 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all "
+            onClick={() => router.push('/contact')}
           >
             Get started
           </motion.button>
