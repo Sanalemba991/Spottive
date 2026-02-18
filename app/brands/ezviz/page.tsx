@@ -230,7 +230,7 @@ export default function Ezviz() {
           >
             In Wrapping Up, As Threats Continue To Evolve In The Digital Sphere, Choosing The Right
             Surveillance System Becomes Pivotal. With A Partner Like{' '}
-            <strong className='text-blue-400'>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
+            <strong className='text-cyan-400'>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
             Investing In A Legacy Of Innovation And Security.
           </p>
         </motion.div>

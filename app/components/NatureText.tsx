@@ -85,7 +85,7 @@ export default function NatureText() {
             className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6"
             variants={itemVariants}
           >
-            About <span className="text-blue-400">Spottive</span>
+            About <span className="text-cyan-700">Spottive</span>
           </motion.h2>
           
           <motion.p 

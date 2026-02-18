@@ -85,9 +85,9 @@ export default function CommitmentToExcellence() {
             className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6"
 
           >
-            Why Choose <span className="text-blue-400">Us</span>?
+            Why Choose <span className="text-cyan-700">Us</span>?
           </motion.h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-cyan-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             A Commitment to Excellence and Customer Satisfaction
           </p>

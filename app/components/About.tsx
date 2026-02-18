@@ -294,7 +294,7 @@ const About = () => {
             {/* Slide 2: We Specialized In */}
             <motion.section 
                 ref={refSpecialized}
-                className="min-h-screen mt-4 px-10"
+                className="min-h-screen mt-4 px-10 mb-15"
                 variants={sectionVariants}
                 initial="hidden"
                 animate={inViewSpecialized ? "visible" : "hidden"}

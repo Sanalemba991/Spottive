@@ -50,13 +50,13 @@ export default function Testimonial() {
             className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6"
 
           >
-           What Our<span className="text-blue-400"> Clients</span> Say?
+           What Our<span className="text-cyan-700"> Clients</span> Say?
           </motion.h2>
           <p className="text-gray-600 text-lg">Words of praise by my valuable clients.</p>
         </div>
 
         {/* Testimonial Card */}
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100  p-8 md:p-12 relative">
+        <div className="bg-gradient-to-br from-cyan-50 to-cyan-100  p-8 md:p-12 relative">
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               key={currentIndex}
@@ -75,7 +75,7 @@ export default function Testimonial() {
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-lg"
                 />
                 {/* Quote Icon */}
-                <div className="absolute -top-2 -right-2 bg-blue-400 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                <div className="absolute -top-2 -right-2 bg-cyan-400 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                   <svg 
                     className="w-5 h-5 text-white" 
                     fill="currentColor" 

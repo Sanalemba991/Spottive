@@ -201,7 +201,7 @@ const galleryImages = [
 
 const stats = [
   {
-    color: 'bg-blue-500',
+    color: 'bg-cyan-500',
     value: '10+',
     label: 'Years Experience',
   },
@@ -617,13 +617,13 @@ export default function HeroSection() {
             viewport={{ once: true }}
             className="text-center mb-16 lg:mb-20"
           >
-            <p className="text-xs text-blue-600 uppercase tracking-[0.3em] font-semibold mb-3">
+            <p className="text-xs text-cyan-600 uppercase tracking-[0.3em] font-semibold mb-3">
               Our Commitment
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Authorised Distributor
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6" />
+            <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-cyan-500 mx-auto mb-6" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Proud authorized distributor of world-leading technology brands, delivering premium products and expert support to businesses across the region.
             </p>
@@ -678,10 +678,10 @@ export default function HeroSection() {
                 >
                   Leading Provider of Diverse
                   <br />
-                  <span className="text-blue-400">Technology Solutions</span> in Dubai
+                  <span className="text-cyan-400">Technology Solutions</span> in Dubai
                 </motion.h3>
                 <motion.div
-                  className="w-12 h-1 bg-blue-400 rounded-full"
+                  className="w-12 h-1 bg-cyan-400 rounded-full"
                   variants={itemVariants}
                 ></motion.div>
               </div>
@@ -807,7 +807,7 @@ export default function HeroSection() {
                         whileHover={{ opacity: 1, scale: 1.03 }}
                         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                         className={`group relative overflow-hidden cursor-pointer shrink-0 w-[160px] rounded-lg ${index === currentSlide
-                          ? 'shadow-2xl shadow-blue-500/30 ring-2 ring-blue-500'
+                          ? 'shadow-2xl shadow-cyan-500/30 ring-2 ring-cyan-500'
                           : 'shadow-xl shadow-black/30 hover:shadow-2xl'
                           }`}
                       >
@@ -825,14 +825,14 @@ export default function HeroSection() {
                             }`} />
                         </div>
                         <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p className={`text-xs sm:text-sm font-semibold leading-tight transition-colors duration-300 ${index === currentSlide ? 'text-blue-400' : 'text-white'
+                          <p className={`text-xs sm:text-sm font-semibold leading-tight transition-colors duration-300 ${index === currentSlide ? 'text-cyan-400' : 'text-white'
                             }`}>
                             {s.subtitle}
                           </p>
                         </div>
                         {/* Active indicator bar */}
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500"
+                          className="absolute bottom-0 left-0 right-0 h-1 bg-cyan-500"
                           initial={false}
                           animate={{ scaleX: index === currentSlide ? 1 : 0 }}
                           transition={{ duration: 0.3 }}

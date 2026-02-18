@@ -64,7 +64,7 @@ export default function Partner({
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
           >
-            Our <span className="text-blue-400">Partners</span>
+            Our <span className="text-cyan-700">Partners</span>
           </motion.h2>
         </div>
 
@@ -87,10 +87,10 @@ export default function Partner({
               >
                 Leading Provider of Diverse
                 <br />
-                <span className="text-blue-400">Technology Solutions</span> in Dubai
+                <span className="text-cyan-700">Technology Solutions</span> in Dubai
               </motion.h3>
               <motion.div 
-                className="w-12 h-1 bg-blue-400 rounded-full"
+                className="w-12 h-1 bg-cyan-700x rounded-full"
                 variants={itemVariants}
               ></motion.div>
             </div>
@@ -116,7 +116,7 @@ export default function Partner({
             className="flex justify-center"
           >
             <div className="relative w-full max-w-sm group">
-              <div className="absolute inset-0 bg-blue-400 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-cyan-400 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                 <img
                   src={imageUrl}
