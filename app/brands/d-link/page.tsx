@@ -8,7 +8,7 @@ import Dahua from "../../../public/brands/dubai.png"
 const accordionItems = [
   { id: 1, label: 'Network Cameras' },
   { id: 2, label: 'HDCVI Cameras' },
-  { id: 3, label: 'Network Recorders' },
+  { id: 3, label: 'Network Recordetyrs' },
 ];
 
 export default function DahuaPage() {
