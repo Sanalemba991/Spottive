@@ -21,10 +21,10 @@ export default function DahuaPage() {
   // Animation Variants
   const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: 'easeOut' } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
     }
   };
 
@@ -117,7 +117,7 @@ export default function DahuaPage() {
                 fontSize: '13px',
                 fontFamily: 'Arial, sans-serif',
                 gap: '10px',
-               
+
                 overflow: 'hidden',
               }}
             >
@@ -145,9 +145,8 @@ export default function DahuaPage() {
                 color: '#111',
               }}
             >
-              Dahua Distributor at the
-              <br />
-              Forefront of CCTV Solutions
+
+              Your Trusted TP-Link Distributor in Dubai
             </h1>
             <p
               style={{
@@ -158,51 +157,13 @@ export default function DahuaPage() {
                 margin: 0,
               }}
             >
-              Dahua, Globally Acknowledged For Its Unbeatable Quality And Competitive Pricing, Harnesses
-              The Latest Technology To Shield Numerous Properties. Their Stronghold As A Dahua
-              Distributor In Dubai Has Reinforced The City&apos;s Security Infrastructure, Providing Solutions
-              That Amplify Safety, Deter Potential Threats, And Elevate The Surveillance Experience, Be It
-              For Homes, Commercial Establishments, Or Larger Infrastructures.
+              At Spottive Technologies, we understand the evolving networking landscape and the importance of reliable solutions in today’s digital age. As a trusted TP link distributor in Dubai, we’re proud to offer the quality and reliability of TP-Link, a global leader in networking devices and accessories.
             </p>
           </motion.div>
         </motion.div>
 
         {/* SECTION 2: THE IMPERATIVE */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          style={{ padding: '36px 0 30px 0' }}
-        >
-          <h2
-            style={{
-              fontSize: '24px',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginTop: 0,
-              marginBottom: '18px',
-              color: '#111',
-            }}
-          >
-            The Imperative for Enhanced CCTV Systems by Dahua
-          </h2>
-          <p
-            style={{
-              fontSize: '15px',
-              lineHeight: '1.9',
-              color: '#111',
-              textAlign: 'justify',
-              margin: 0,
-            }}
-          >
-            Today&apos;s World Demands Better Security Tools. Dahua Leads This Change With Simple Yet
-            Effective CCTV Solutions. Beyond Just Recording Events, Dahua&apos;s Systems Can Detect
-            Movements, Recognize Faces, And Even Analyze Patterns. These Features Help Spot Problems
-            Before They Grow, Ensuring Safer Homes And Businesses. With Rising Security Concerns,
-            Choosing Dahua&apos;s Trusted CCTV Technology Makes Perfect Sense.
-          </p>
-        </motion.div>
+
 
         {/* ACCORDION */}
         <motion.div
@@ -302,8 +263,11 @@ export default function DahuaPage() {
               color: '#111',
             }}
           >
-            Elevating Your Surveillance
+            Experience the Unique Benefits of Choosing TP-Link Solutions
           </h2>
+          <h1 className='font-bold mb-5-'>
+            Pioneering Innovations
+          </h1>
 
           <p
             style={{
@@ -315,13 +279,27 @@ export default function DahuaPage() {
               marginTop: 0,
             }}
           >
-            Dahua&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
-            Sets A High Benchmark. At Spottive Technologies, We&apos;re Inspired To Deliver Tailor-Made
-            Solutions That Resonate With Your Unique Needs. Our Team Remains Updated With The
-            Industry&apos;s Cutting-Edge Advancements, Promising Top-Tier Guidance, Unwavering Support,
-            And State-Of-The-Art Solutions.
+            TP-Link has embarked on an extensive journey that extends far beyond just wireless technology. Their innovative forays into smart homes, smartphones, and smart accessories highlight their unwavering commitment to technological advancement and a vision for the future.
           </p>
+          <h1 className='font-bold mb-5-'>
+            Meeting Diverse Networking Requirements
+          </h1>
+          <p
+            style={{
+              fontSize: '15px',
+              lineHeight: '1.9',
+              color: '#111',
+              textAlign: 'justify',
+              marginBottom: '20px',
+              margin: 0,
+            }}
+          >
 
+            TP-Link stands out with features like the Omada Cloud-Based Controller and robust routers, notably models like the ER7206. They offer tailored solutions for a plethora of networking needs, whether it’s achieving seamless office connectivity with the EAP245 ceiling mount access point or optimizing signal coverage with the EAP110-Outdoor wireless access point. What’s evident in their offerings is the expansive and high-quality range that caters to various requirements.
+          </p>
+          <h1 className='font-bold mb-5-'>
+            Unwavering Commitment to User Experience
+          </h1>
           <p
             style={{
               fontSize: '15px',
@@ -331,10 +309,7 @@ export default function DahuaPage() {
               margin: 0,
             }}
           >
-            In Wrapping Up, As Threats Continue To Evolve In The Digital Sphere, Choosing The Right
-            Surveillance System Becomes Pivotal. With A Partner Like{' '}
-            <strong>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
-            Investing In A Legacy Of Innovation And Security.
+            At the heart of TP-Link’s ethos is its dedication to the user. They prioritize ensuring that their devices come with user-friendly interfaces and are easy to set up. Their commitment shines through in their relentless drive to optimize user experience across the board.
           </p>
         </motion.div>
       </div>

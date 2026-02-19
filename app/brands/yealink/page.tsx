@@ -145,9 +145,9 @@ export default function DahuaPage() {
                 color: '#111',
               }}
             >
-              Dahua Distributor at the
-              <br />
-              Forefront of CCTV Solutions
+             
+Your Trusted Distributor of Yealink Communication Solutions in Dubai, UAE
+           
             </h1>
             <p
               style={{
@@ -158,12 +158,7 @@ export default function DahuaPage() {
                 margin: 0,
               }}
             >
-              Dahua, Globally Acknowledged For Its Unbeatable Quality And Competitive Pricing, Harnesses
-              The Latest Technology To Shield Numerous Properties. Their Stronghold As A Dahua
-              Distributor In Dubai Has Reinforced The City&apos;s Security Infrastructure, Providing Solutions
-              That Amplify Safety, Deter Potential Threats, And Elevate The Surveillance Experience, Be It
-              For Homes, Commercial Establishments, Or Larger Infrastructures.
-            </p>
+              As a trusted distributor of Yealink communication solutions in Dubai, UAE, we offer a comprehensive range of high-quality products from this leading brand. Yealink is a globally recognized provider of innovative communication devices and solutions, specializing in IP phones, video conferencing systems, and collaboration tools. With our extensive selection of Yealink products, you can enhance communication, streamline collaboration, and elevate productivity in your business.</p>
           </motion.div>
         </motion.div>
 
@@ -175,18 +170,6 @@ export default function DahuaPage() {
           viewport={{ once: true, amount: 0.3 }}
           style={{ padding: '36px 0 30px 0' }}
         >
-          <h2
-            style={{
-              fontSize: '24px',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginTop: 0,
-              marginBottom: '18px',
-              color: '#111',
-            }}
-          >
-            The Imperative for Enhanced CCTV Systems by Dahua
-          </h2>
           <p
             style={{
               fontSize: '15px',
@@ -196,93 +179,11 @@ export default function DahuaPage() {
               margin: 0,
             }}
           >
-            Today&apos;s World Demands Better Security Tools. Dahua Leads This Change With Simple Yet
-            Effective CCTV Solutions. Beyond Just Recording Events, Dahua&apos;s Systems Can Detect
-            Movements, Recognize Faces, And Even Analyze Patterns. These Features Help Spot Problems
-            Before They Grow, Ensuring Safer Homes And Businesses. With Rising Security Concerns,
-            Choosing Dahua&apos;s Trusted CCTV Technology Makes Perfect Sense.
-          </p>
+           Yealink’s device management platform simplifies the deployment, configuration, and management of Yealink devices. With centralized control and monitoring capabilities, Yealink’s device management platform streamlines device provisioning, firmware updates, and troubleshooting processes. Ensure seamless device management, reduce maintenance efforts, and enhance the overall management of Yealink communication solutions.</p>
         </motion.div>
 
         {/* ACCORDION */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{ border: '1px solid #ddd', borderRadius: '6px', overflow: 'hidden', marginBottom: '0' }}
-        >
-          {accordionItems.map((item, index) => (
-            <div
-              key={item.id}
-              style={{
-                background: '#f5f5f5',
-                borderTop: index !== 0 ? '1px solid #e0e0e0' : 'none',
-              }}
-            >
-              <button
-                onClick={() => toggleItem(item.id)}
-                className="accordion-header"
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '18px 28px',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: 'bold',
-                  color: '#111',
-                  textAlign: 'left',
-                  transition: 'background-color 0.2s ease',
-                }}
-              >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    className={`accordion-icon ${openItems[item.id] ? 'open' : ''}`}
-                    style={{
-                      fontSize: '22px',
-                      fontWeight: '300',
-                      lineHeight: 1,
-                      color: '#333',
-                      width: '18px',
-                      display: 'inline-block',
-                      textAlign: 'center',
-                    }}
-                  >
-                    {openItems[item.id] ? '−' : '+'}
-                  </span>
-                  {item.label}
-                </span>
-                <span
-                  className={`accordion-arrow ${openItems[item.id] ? 'open' : ''}`}
-                  style={{ fontSize: '20px', color: '#888', fontFamily: 'Arial, sans-serif' }}
-                >
-                  ›
-                </span>
-              </button>
-
-              {/* ANIMATED WRAPPER */}
-              <div className={`accordion-body ${openItems[item.id] ? 'open' : ''}`}>
-                <div className="accordion-content">
-                  <div
-                    style={{
-                      padding: '0 28px 20px 60px',
-                      fontSize: '14.5px',
-                      lineHeight: '1.75',
-                      color: '#333',
-                    }}
-                  >
-                    Explore our premium range of {item.label} — engineered for superior surveillance,
-                    reliability, and round-the-clock protection for homes and businesses.
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+        
 
         {/* SECTION 3: ELEVATING YOUR SURVEILLANCE */}
         <motion.div
@@ -302,7 +203,7 @@ export default function DahuaPage() {
               color: '#111',
             }}
           >
-            Elevating Your Surveillance
+Collaboration and Conferencing Solutions for Enhanced Communication
           </h2>
 
           <p
@@ -315,26 +216,7 @@ export default function DahuaPage() {
               marginTop: 0,
             }}
           >
-            Dahua&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
-            Sets A High Benchmark. At Spottive Technologies, We&apos;re Inspired To Deliver Tailor-Made
-            Solutions That Resonate With Your Unique Needs. Our Team Remains Updated With The
-            Industry&apos;s Cutting-Edge Advancements, Promising Top-Tier Guidance, Unwavering Support,
-            And State-Of-The-Art Solutions.
-          </p>
-
-          <p
-            style={{
-              fontSize: '15px',
-              lineHeight: '1.9',
-              color: '#111',
-              textAlign: 'justify',
-              margin: 0,
-            }}
-          >
-            In Wrapping Up, As Threats Continue To Evolve In The Digital Sphere, Choosing The Right
-            Surveillance System Becomes Pivotal. With A Partner Like{' '}
-            <strong>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
-            Investing In A Legacy Of Innovation And Security.
+           Yealink’s collaboration and conferencing solutions transform how teams connect and collaborate. From video conferencing systems and conference phones to collaboration platforms and accessories, Yealink’s collaboration products offer immersive audio and video experiences, enabling face-to-face interactions and seamless content sharing. Experience enhanced productivity and streamlined communication with Yealink’s advanced collaboration solutions.
           </p>
         </motion.div>
       </div>

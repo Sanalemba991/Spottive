@@ -21,10 +21,10 @@ export default function DahuaPage() {
   // Animation Variants
   const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: 'easeOut' } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
     }
   };
 
@@ -117,7 +117,7 @@ export default function DahuaPage() {
                 fontSize: '13px',
                 fontFamily: 'Arial, sans-serif',
                 gap: '10px',
-               
+
                 overflow: 'hidden',
               }}
             >
@@ -145,9 +145,7 @@ export default function DahuaPage() {
                 color: '#111',
               }}
             >
-              Dahua Distributor at the
-              <br />
-              Forefront of CCTV Solutions
+              Reliable Distributor of Grandstream Products in Dubai
             </h1>
             <p
               style={{
@@ -158,12 +156,7 @@ export default function DahuaPage() {
                 margin: 0,
               }}
             >
-              Dahua, Globally Acknowledged For Its Unbeatable Quality And Competitive Pricing, Harnesses
-              The Latest Technology To Shield Numerous Properties. Their Stronghold As A Dahua
-              Distributor In Dubai Has Reinforced The City&apos;s Security Infrastructure, Providing Solutions
-              That Amplify Safety, Deter Potential Threats, And Elevate The Surveillance Experience, Be It
-              For Homes, Commercial Establishments, Or Larger Infrastructures.
-            </p>
+              We present a complete assortment of trustworthy and high-functionality communication solutions from this world-renowned brand. Grandstream is at the pinnacle in supplying IP voice, video, data, and mobility solutions, meeting the varied communication requirements of businesses and individuals. Through our wide-ranging collection of Grandstream products, you can amplify cooperation, simplify communication, and boost efficiency. </p>
           </motion.div>
         </motion.div>
 
@@ -185,7 +178,7 @@ export default function DahuaPage() {
               color: '#111',
             }}
           >
-            The Imperative for Enhanced CCTV Systems by Dahua
+            Advanced IP Telephony Solutions for Seamless Communication
           </h2>
           <p
             style={{
@@ -193,118 +186,11 @@ export default function DahuaPage() {
               lineHeight: '1.9',
               color: '#111',
               textAlign: 'justify',
+              marginBottom: '20px',
               margin: 0,
             }}
           >
-            Today&apos;s World Demands Better Security Tools. Dahua Leads This Change With Simple Yet
-            Effective CCTV Solutions. Beyond Just Recording Events, Dahua&apos;s Systems Can Detect
-            Movements, Recognize Faces, And Even Analyze Patterns. These Features Help Spot Problems
-            Before They Grow, Ensuring Safer Homes And Businesses. With Rising Security Concerns,
-            Choosing Dahua&apos;s Trusted CCTV Technology Makes Perfect Sense.
-          </p>
-        </motion.div>
-
-        {/* ACCORDION */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{ border: '1px solid #ddd', borderRadius: '6px', overflow: 'hidden', marginBottom: '0' }}
-        >
-          {accordionItems.map((item, index) => (
-            <div
-              key={item.id}
-              style={{
-                background: '#f5f5f5',
-                borderTop: index !== 0 ? '1px solid #e0e0e0' : 'none',
-              }}
-            >
-              <button
-                onClick={() => toggleItem(item.id)}
-                className="accordion-header"
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '18px 28px',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: 'bold',
-                  color: '#111',
-                  textAlign: 'left',
-                  transition: 'background-color 0.2s ease',
-                }}
-              >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    className={`accordion-icon ${openItems[item.id] ? 'open' : ''}`}
-                    style={{
-                      fontSize: '22px',
-                      fontWeight: '300',
-                      lineHeight: 1,
-                      color: '#333',
-                      width: '18px',
-                      display: 'inline-block',
-                      textAlign: 'center',
-                    }}
-                  >
-                    {openItems[item.id] ? '−' : '+'}
-                  </span>
-                  {item.label}
-                </span>
-                <span
-                  className={`accordion-arrow ${openItems[item.id] ? 'open' : ''}`}
-                  style={{ fontSize: '20px', color: '#888', fontFamily: 'Arial, sans-serif' }}
-                >
-                  ›
-                </span>
-              </button>
-
-              {/* ANIMATED WRAPPER */}
-              <div className={`accordion-body ${openItems[item.id] ? 'open' : ''}`}>
-                <div className="accordion-content">
-                  <div
-                    style={{
-                      padding: '0 28px 20px 60px',
-                      fontSize: '14.5px',
-                      lineHeight: '1.75',
-                      color: '#333',
-                    }}
-                  >
-                    Explore our premium range of {item.label} — engineered for superior surveillance,
-                    reliability, and round-the-clock protection for homes and businesses.
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* SECTION 3: ELEVATING YOUR SURVEILLANCE */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          style={{ paddingTop: '44px' }}
-        >
-          <h2
-            style={{
-              fontSize: '24px',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginTop: 0,
-              marginBottom: '24px',
-              color: '#111',
-            }}
-          >
-            Elevating Your Surveillance
-          </h2>
-
+            Grandstream’s IP telephony solutions revolutionize communication, enabling businesses to connect and collaborate seamlessly. With a range of IP phones, IP PBX systems, and communication endpoints, telephony products deliver high-quality voice communication, advanced features, and flexible scalability. Whether you require a simple office phone system or a comprehensive enterprise-grade solution, our range of Grandstream telephony products has you covered.</p>
           <p
             style={{
               fontSize: '15px',
@@ -315,26 +201,7 @@ export default function DahuaPage() {
               marginTop: 0,
             }}
           >
-            Dahua&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
-            Sets A High Benchmark. At Spottive Technologies, We&apos;re Inspired To Deliver Tailor-Made
-            Solutions That Resonate With Your Unique Needs. Our Team Remains Updated With The
-            Industry&apos;s Cutting-Edge Advancements, Promising Top-Tier Guidance, Unwavering Support,
-            And State-Of-The-Art Solutions.
-          </p>
-
-          <p
-            style={{
-              fontSize: '15px',
-              lineHeight: '1.9',
-              color: '#111',
-              textAlign: 'justify',
-              margin: 0,
-            }}
-          >
-            In Wrapping Up, As Threats Continue To Evolve In The Digital Sphere, Choosing The Right
-            Surveillance System Becomes Pivotal. With A Partner Like{' '}
-            <strong>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
-            Investing In A Legacy Of Innovation And Security.
+            Grandstream’s video conferencing and collaboration solutions empower teams to connect and collaborate effectively, regardless of location. From video conferencing systems and IP cameras to collaboration platforms and multimedia endpoints, Grandstream’s video conferencing products offer immersive audio and video experiences, enabling face-to-face interactions and seamless content sharing.
           </p>
         </motion.div>
       </div>

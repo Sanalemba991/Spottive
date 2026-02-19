@@ -145,9 +145,7 @@ export default function DahuaPage() {
                 color: '#111',
               }}
             >
-              Dahua Distributor at the
-              <br />
-              Forefront of CCTV Solutions
+              Reliable <span className='text-green-400'>Seagate</span> Distributor in Dubai
             </h1>
             <p
               style={{
@@ -158,12 +156,8 @@ export default function DahuaPage() {
                 margin: 0,
               }}
             >
-              Dahua, Globally Acknowledged For Its Unbeatable Quality And Competitive Pricing, Harnesses
-              The Latest Technology To Shield Numerous Properties. Their Stronghold As A Dahua
-              Distributor In Dubai Has Reinforced The City&apos;s Security Infrastructure, Providing Solutions
-              That Amplify Safety, Deter Potential Threats, And Elevate The Surveillance Experience, Be It
-              For Homes, Commercial Establishments, Or Larger Infrastructures.
-            </p>
+             
+As a respected distributor in Dubai, we supply a variety of products from Seagate Technology PLC, a world-renowned data storage firm. Seagate creates a broad array of advanced storage solutions, including hard drives and solid-state drives for various applications. Our aim, in keeping with Seagate’s innovative spirit, is to meet the rising demand for digital storage in Dubai. We offer high-quality storage solutions that enable businesses and consumers to manage their data efficiently and securely.</p>
           </motion.div>
         </motion.div>
 
@@ -185,7 +179,7 @@ export default function DahuaPage() {
               color: '#111',
             }}
           >
-            The Imperative for Enhanced CCTV Systems by Dahua
+        High-Performance Hard <span className='text-green-400'>Drives</span> for Data Storage
           </h2>
           <p
             style={{
@@ -196,147 +190,9 @@ export default function DahuaPage() {
               margin: 0,
             }}
           >
-            Today&apos;s World Demands Better Security Tools. Dahua Leads This Change With Simple Yet
-            Effective CCTV Solutions. Beyond Just Recording Events, Dahua&apos;s Systems Can Detect
-            Movements, Recognize Faces, And Even Analyze Patterns. These Features Help Spot Problems
-            Before They Grow, Ensuring Safer Homes And Businesses. With Rising Security Concerns,
-            Choosing Dahua&apos;s Trusted CCTV Technology Makes Perfect Sense.
-          </p>
+            Seagate’s hard drives offer robust and efficient storage solutions for diverse needs. They include internal drives for PCs and laptops, as well as external drives for mobile storage. Known for large storage capacities, rapid data transfer, and enhanced features like encryption and backup software, Seagate ensures reliable and superior performance for all your storage needs. Count on Seagate’s distinguished expertise in storage technology for your data storage demands.</p>
         </motion.div>
-
-        {/* ACCORDION */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{ border: '1px solid #ddd', borderRadius: '6px', overflow: 'hidden', marginBottom: '0' }}
-        >
-          {accordionItems.map((item, index) => (
-            <div
-              key={item.id}
-              style={{
-                background: '#f5f5f5',
-                borderTop: index !== 0 ? '1px solid #e0e0e0' : 'none',
-              }}
-            >
-              <button
-                onClick={() => toggleItem(item.id)}
-                className="accordion-header"
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '18px 28px',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: 'bold',
-                  color: '#111',
-                  textAlign: 'left',
-                  transition: 'background-color 0.2s ease',
-                }}
-              >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    className={`accordion-icon ${openItems[item.id] ? 'open' : ''}`}
-                    style={{
-                      fontSize: '22px',
-                      fontWeight: '300',
-                      lineHeight: 1,
-                      color: '#333',
-                      width: '18px',
-                      display: 'inline-block',
-                      textAlign: 'center',
-                    }}
-                  >
-                    {openItems[item.id] ? '−' : '+'}
-                  </span>
-                  {item.label}
-                </span>
-                <span
-                  className={`accordion-arrow ${openItems[item.id] ? 'open' : ''}`}
-                  style={{ fontSize: '20px', color: '#888', fontFamily: 'Arial, sans-serif' }}
-                >
-                  ›
-                </span>
-              </button>
-
-              {/* ANIMATED WRAPPER */}
-              <div className={`accordion-body ${openItems[item.id] ? 'open' : ''}`}>
-                <div className="accordion-content">
-                  <div
-                    style={{
-                      padding: '0 28px 20px 60px',
-                      fontSize: '14.5px',
-                      lineHeight: '1.75',
-                      color: '#333',
-                    }}
-                  >
-                    Explore our premium range of {item.label} — engineered for superior surveillance,
-                    reliability, and round-the-clock protection for homes and businesses.
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* SECTION 3: ELEVATING YOUR SURVEILLANCE */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          style={{ paddingTop: '44px' }}
-        >
-          <h2
-            style={{
-              fontSize: '24px',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginTop: 0,
-              marginBottom: '24px',
-              color: '#111',
-            }}
-          >
-            Elevating Your Surveillance
-          </h2>
-
-          <p
-            style={{
-              fontSize: '15px',
-              lineHeight: '1.9',
-              color: '#111',
-              textAlign: 'justify',
-              marginBottom: '20px',
-              marginTop: 0,
-            }}
-          >
-            Dahua&apos;s Prominence In The Security Domain, Especially As A Notable Distributor In Dubai,
-            Sets A High Benchmark. At Spottive Technologies, We&apos;re Inspired To Deliver Tailor-Made
-            Solutions That Resonate With Your Unique Needs. Our Team Remains Updated With The
-            Industry&apos;s Cutting-Edge Advancements, Promising Top-Tier Guidance, Unwavering Support,
-            And State-Of-The-Art Solutions.
-          </p>
-
-          <p
-            style={{
-              fontSize: '15px',
-              lineHeight: '1.9',
-              color: '#111',
-              textAlign: 'justify',
-              margin: 0,
-            }}
-          >
-            In Wrapping Up, As Threats Continue To Evolve In The Digital Sphere, Choosing The Right
-            Surveillance System Becomes Pivotal. With A Partner Like{' '}
-            <strong>Spottive Technologies</strong>, You&apos;re Not Just Opting For A Product; You&apos;re
-            Investing In A Legacy Of Innovation And Security.
-          </p>
-        </motion.div>
+       
       </div>
     </>
   );
