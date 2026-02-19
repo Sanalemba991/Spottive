@@ -184,7 +184,7 @@ export default function DahuaPage() {
             style={{
               fontSize: '15px',
               lineHeight: '1.9',
-              color: '#111',
+              color: '#111', 
               textAlign: 'justify',
               margin: 0,
             }}
@@ -194,4 +194,4 @@ export default function DahuaPage() {
       </div>
     </>
   );
-}
+} 
