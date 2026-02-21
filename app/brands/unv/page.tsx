@@ -55,6 +55,29 @@ export default function DahuaPage() {
           grid-template-rows: 0fr;
           transition: grid-template-rows 0.4s ease-out, opacity 0.3s ease-out;
           opacity: 0;
+        } /* Banner Animations */
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+        .animation-delay-600 {
+          animation-delay: 0.6s;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .accordion-body.open {
           grid-template-rows: 1fr;
@@ -193,10 +216,6 @@ export default function DahuaPage() {
           >
             Ensuring safety and quality in Dubai, UAE, Spottive Technologies is a trusted distributor of SIRA-approved Uniview CCTV cameras. SIRA (Security Industry Regulatory Agency) approval signifies adherence to the highest industry standards. Uniview’s SIRA-approved CCTV cameras combine innovation, reliability, and performance, offering comprehensive security solutions for your assets and premises. Choose Uniview’s superior SIRA-approved CCTV cameras from Spottive Technologies, and upgrade your security infrastructure with confidence.</p>
         </motion.div>
-
-        {/* ACCORDION */}
-
-
         {/* SECTION 3: ELEVATING YOUR SURVEILLANCE */}
         <motion.div
           variants={sectionVariants}
@@ -229,8 +248,6 @@ export default function DahuaPage() {
             }}
           >
             With a keen eye on the ever-evolving digital landscape, Spottive Technologies is dedicated to supplying top-of-the-line Uniview’s video surveillance systems. Recognized for their industry-leading design and performance, Uniview’s diverse range of products find application in various sectors – from retail and hospitality to public safety. Our comprehensive portfolio of Uniview’s products is designed to arm businesses with cutting-edge security tools, contributing to a resilient and adaptable digital infrastructure in the UAE.
-
-
             <p
               style={{
                 fontSize: '15px',

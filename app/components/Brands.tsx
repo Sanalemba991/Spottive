@@ -14,9 +14,8 @@ function CountUpValue({ value }: { value: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  // Extract numeric value from string (e.g., "10+" -> 10)
   const numericValue = parseInt(value.replace(/\D/g, ''), 10) || 0;
-  const suffix = value.replace(/\d/g, ''); // Get the suffix (e.g., "+")
+  const suffix = value.replace(/\d/g, '');
 
   useEffect(() => {
     if (!isInView) return;
@@ -27,7 +26,7 @@ function CountUpValue({ value }: { value: string }) {
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
-      const duration = 2000; // 2 seconds
+      const duration = 2000;
       const progress = Math.min(elapsed / duration, 1);
 
       setDisplayValue(Math.floor(progress * numericValue));
@@ -49,6 +48,7 @@ function CountUpValue({ value }: { value: string }) {
     </span>
   );
 }
+
 const slides = [
   {
     id: 1,
@@ -192,13 +192,6 @@ const slides = [
   },
 ];
 
-const galleryImages = [
-
-  'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
-  'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
-  'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80',
-];
-
 const stats = [
   {
     color: 'bg-cyan-500',
@@ -291,22 +284,18 @@ const VISIBLE_CARDS = 4;
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [isHoveringButton, setIsHoveringButton] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
-  // Calculate cardStart to keep active slide centered
   const getCardStart = useCallback((slideIndex: number) => {
-    const centerPosition = 1; // Keep active card in 2nd position for better centering
+    const centerPosition = 1;
     let start = slideIndex - centerPosition;
 
-    // Adjust if too close to the beginning
     if (start < 0) {
       start = 0;
     }
 
-    // Adjust if too close to the end
     if (start + VISIBLE_CARDS > slides.length) {
       start = Math.max(0, slides.length - VISIBLE_CARDS);
     }
@@ -330,8 +319,6 @@ export default function HeroSection() {
 
   const [direction, setDirection] = useState(0);
 
-  const visibleSlides = slides.slice(cardStart, cardStart + VISIBLE_CARDS);
-
   const slide = slides[currentSlide];
 
   const handleNext = useCallback(() => {
@@ -348,14 +335,6 @@ export default function HeroSection() {
     setDirection(index > currentSlide ? 1 : -1);
     goToSlide(index);
   }, [currentSlide, goToSlide, setDirection]);
-
-  const nextGalleryImage = useCallback(() => {
-    setCurrentGalleryImage((prev) => (prev + 1) % galleryImages.length);
-  }, []);
-
-  const prevGalleryImage = useCallback(() => {
-    setCurrentGalleryImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -377,144 +356,114 @@ export default function HeroSection() {
     exit: () => ({ opacity: 0, y: -30 }),
   };
 
-  const [refBanner, inViewBanner] = useInViewIntersection({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const bannerBackground = 'https://images.unsplash.com/photo-1718421280278-4402ea0c00eb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-
   const router = useRouter();
 
-  const bannerContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const bannerTitleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
-  const bannerSlideInRightVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, delay: 0.4 },
-    },
+  // Single Banner Data
+  const banner = {
+    name: 'DJI Mini 4 Pro',
+    subtitle: 'Compact Innovation',
+    title: 'DJI MINI 4 PRO',
+    tagline: 'Small Size, Big Impact.',
+    buttons: [
+      { text: 'Shop Now', variant: 'solid' },
+      { text: 'View Specs', variant: 'outline' }
+    ],
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
   };
 
   return (
     <section className="bg-white overflow-hidden">
-      {/* Banner Section */}
-      <div ref={refBanner} className="relative mb-8 w-full h-96 md:h-screen overflow-hidden">
+      
+      {/* DJI Single Banner Section - Integrated Here */}
+      <div className="relative w-full h-screen overflow-hidden bg-gray-900">
         {/* Background Image */}
-        <motion.div
-          className="absolute inset-0 w-full h-full"
-          initial={{ opacity: 0 }}
-          animate={inViewBanner ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: `url('${bannerBackground}')`,
-              filter: "brightness(0.9)",
-            }}
+        <div className="absolute inset-0">
+          <Image
+            src={banner.image}
+            alt={banner.title}
+            fill
+            priority
+            className="w-full h-full object-cover"
           />
-        </motion.div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-800/10 to-slate-900/40" />
+        </div>
 
-        {/* Content Container */}
-        <motion.div
-          className="relative z-10 h-full flex flex-col"
-          variants={bannerContainerVariants}
-          initial="hidden"
-          animate={inViewBanner ? "visible" : "hidden"}
-        >
-          {/* Main Title - Centered */}
-          <div className="flex-1 flex flex-col items-center justify-center">
-            <motion.h1
-              className="text-white text-5xl md:text-9xl font-light tracking-tight text-center px-6 md:px-0 leading-tight md:leading-normal"
-              variants={bannerTitleVariants}
-            >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={inViewBanner ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              >
-                Our
-              </motion.span>
-              <motion.span
-                className="ml-4 md:ml-8 inline-block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={inViewBanner ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 1, delay: 1.2 }}
-              >
-                Brands
-              </motion.span>
-            </motion.h1>
+        {/* Center Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
+          <div className="max-w-4xl mx-auto">
+            {/* Subtitle */}
+            <p className="text-white/90 text-sm md:text-base font-light tracking-wide mb-2 animate-fadeInUp">
+              {banner.subtitle}
+            </p>
 
-            {/* Mobile-only description */}
-            <motion.div
-              className="md:hidden mt-8 px-6 flex flex-col items-center gap-3 w-full"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inViewBanner ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-            >
-              <motion.p className="text-white/70 text-sm text-center leading-relaxed max-w-xs">
-                Authorized distributors of world-leading technology brands, delivering premium products and solutions trusted globally for innovation and reliability.
-              </motion.p>
-              <motion.div
-                className="h-0.5 bg-white/30"
-                initial={{ width: 0 }}
-                animate={inViewBanner ? { width: "8rem" } : { width: 0 }}
-                transition={{ duration: 0.8, delay: 2 }}
-              />
-            </motion.div>
+            {/* Main Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wider mb-2 animate-fadeInUp animation-delay-200">
+              {banner.title}
+            </h1>
+
+            {/* Tagline */}
+            <p className="text-white text-base md:text-lg lg:text-xl font-normal mb-6 animate-fadeInUp animation-delay-400">
+              {banner.tagline}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 animate-fadeInUp animation-delay-600">
+              {banner.buttons.map((button, btnIndex) => (
+                <button
+                  key={btnIndex}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    button.variant === 'solid'
+                      ? 'bg-white text-gray-900 hover:bg-gray-100'
+                      : 'border-2 border-white/60 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm'
+                  }`}
+                >
+                  {button.text}
+                  <ChevronRight className="w-3 h-3" />
+                </button>
+              ))}
+            </div>
           </div>
+        </div>
 
-          {/* Bottom Section - Desktop only */}
-          <div className="pb-12 px-6 md:px-12 hidden md:flex flex-col items-end gap-4">
-            <motion.div
-              className="flex flex-col items-end gap-2"
-              variants={bannerSlideInRightVariants}
-            >
-              <motion.p
-                className="text-white/70 text-sm max-w-md text-right"
-                initial={{ opacity: 0 }}
-                animate={inViewBanner ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 1, delay: 1.5 }}
-              >
-                Authorized distributors of world-leading technology brands, delivering premium products and solutions trusted globally for innovation and reliability.
-              </motion.p>
+        {/* Inline Styles for Animations */}
+        <style jsx>{`
+          .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+          }
 
-              <motion.div
-                className="h-0.5 w-32 bg-white/30"
-                initial={{ width: 0 }}
-                animate={inViewBanner ? { width: "8rem" } : { width: 0 }}
-                transition={{ duration: 1, delay: 1.8 }}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+          .animation-delay-200 {
+            animation-delay: 0.2s;
+          }
+
+          .animation-delay-400 {
+            animation-delay: 0.4s;
+          }
+
+          .animation-delay-600 {
+            animation-delay: 0.6s;
+          }
+
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}</style>
       </div>
 
+      {/* Spottive Technologies Introduction */}
       <motion.div
         variants={bottomSectionVariants}
         initial="hidden"
         animate="visible"
-        className=" text-gray-900 relative group"
+        className="text-gray-900 relative group"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -548,10 +497,9 @@ export default function HeroSection() {
                   reliability, and performance ensures every brand we represent stands for
                   trust, durability, and long-term value.
                 </motion.p>
-
               </div>
 
-              {/* Stats with colored circle indicators */}
+              {/* Stats */}
               <div className="space-y-4">
                 {stats.map((stat, index) => (
                   <motion.div
@@ -562,7 +510,6 @@ export default function HeroSection() {
                     animate="visible"
                     className="flex items-center gap-4"
                   >
-                    {/* Colored circle indicator */}
                     <div className={`w-5 h-5 ${stat.color} rounded-full shrink-0`} />
                     <div className="flex items-baseline gap-3">
                       <CountUpValue value={stat.value} />
@@ -577,7 +524,6 @@ export default function HeroSection() {
 
             {/* Right Side - Single Image */}
             <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
-              {/* Organic Oval/Blob Shape Image Container */}
               <motion.div
                 className="w-full h-full overflow-hidden shadow-2xl relative"
                 style={{
@@ -640,7 +586,6 @@ export default function HeroSection() {
           >
             {/* Left Column - Image */}
             <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
-              {/* Organic Oval/Blob Shape Image Container */}
               <motion.div
                 className="w-full h-full overflow-hidden shadow-2xl relative"
                 style={{
@@ -704,9 +649,7 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Middle Section - About Spottive with Organic Shape Image */}
-
-
+      {/* Brand Slides Carousel Section */}
       <div className="relative h-[85vh] min-h-125 max-h-200 w-full overflow-hidden bg-black group">
         {/* Background Image with Transition */}
         <AnimatePresence initial={false}>
@@ -727,23 +670,22 @@ export default function HeroSection() {
               sizes="100vw"
               className="object-cover"
             />
-            {/* Dark overlay gradient */}
             <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-black/30" />
             <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Arrows - Absolute Positioned */}
+        {/* Navigation Arrows */}
         <button
           onClick={handlePrev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full  flex items-center justify-center text-white  transition-all duration-300 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm opacity-0 group-hover:opacity-100"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12  flex items-center justify-center text-white  transition-all duration-300 backdrop-blur-sm opacity-0 group-hover:opacity-100"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm opacity-0 group-hover:opacity-100"
           aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
@@ -784,11 +726,10 @@ export default function HeroSection() {
                       <ChevronRight className="w-3 h-3 transition-transform duration-200" />
                     </Link>
                   </div>
-
                 </motion.div>
               </AnimatePresence>
 
-              {/* Right Side - Card Thumbnails (4 visible at a time, smooth scroll) */}
+              {/* Right Side - Card Thumbnails */}
               <div className="hidden md:flex justify-end">
                 <div className="relative overflow-hidden" style={{ width: `${VISIBLE_CARDS * 160 + (VISIBLE_CARDS - 1) * 14}px` }}>
                   <motion.div
@@ -830,7 +771,6 @@ export default function HeroSection() {
                             {s.subtitle}
                           </p>
                         </div>
-                        {/* Active indicator bar */}
                         <motion.div
                           className="absolute bottom-0 left-0 right-0 h-1 bg-cyan-500"
                           initial={false}
@@ -844,9 +784,6 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-
-
-
         </div>
       </div>
 
@@ -858,7 +795,6 @@ export default function HeroSection() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Handshake Icon */}
         <motion.div
           className="flex justify-center mb-6"
           initial={{ opacity: 0, scale: 0 }}
@@ -888,7 +824,7 @@ export default function HeroSection() {
         >
           <motion.button
             variants={itemVariants}
-            className="px-8 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all "
+            className="px-8 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all"
             onClick={() => router.push('/contact')}
           >
             Get started

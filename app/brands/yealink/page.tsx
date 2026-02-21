@@ -5,13 +5,24 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Variants } from 'framer-motion';
 import Dahua from "../../../public/brands/dubai.png"
+import { ChevronRight } from 'lucide-react';
+const banner = {
+  subtitle: 'Unified Communications',
+  title: 'YEALINK',
+  tagline: 'Delivering Crystal-Clear Voice and Video Collaboration Solutions.',
+  buttons: [
+    { text: 'View Products', variant: 'solid' },
+    { text: 'Contact Us', variant: 'outline' }
+  ],
+  image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=80', // VoIP phone/office meeting themed image
+};
 const accordionItems = [
   { id: 1, label: 'Network Cameras' },
   { id: 2, label: 'HDCVI Cameras' },
   { id: 3, label: 'Network Recorders' },
 ];
 
-export default function DahuaPage() {
+export default function YealinkPage() {
   const [openItems, setOpenItems] = useState<Record<number, boolean>>({});
 
   const toggleItem = (id: number) => {
@@ -68,6 +79,29 @@ export default function DahuaPage() {
         }
         .accordion-arrow.open {
           transform: rotate(90deg);
+        } /* Banner Animations */
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+        .animation-delay-600 {
+          animation-delay: 0.6s;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .accordion-icon {
           transition: transform 0.3s ease, opacity 0.2s ease;
@@ -77,7 +111,56 @@ export default function DahuaPage() {
           background-color: #eeeeee;
         }
       `}</style>
+<div className="relative w-full h-screen overflow-hidden bg-gray-900">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src={banner.image}
+            alt={banner.title}
+            fill
+            priority
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-800/10 to-slate-900/40" />
+        </div>
 
+        {/* Center Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
+          <div className="max-w-4xl mx-auto">
+            {/* Subtitle */}
+            <p className="text-white/90 text-sm md:text-base font-light tracking-wide mb-2 animate-fadeInUp">
+              {banner.subtitle}
+            </p>
+
+            {/* Main Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wider mb-2 animate-fadeInUp animation-delay-200">
+              {banner.title}
+            </h1>
+
+            {/* Tagline */}
+            <p className="text-white text-base md:text-lg lg:text-xl font-normal mb-6 animate-fadeInUp animation-delay-400">
+              {banner.tagline}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 animate-fadeInUp animation-delay-600">
+              {banner.buttons.map((button, btnIndex) => (
+                <button
+                  key={btnIndex}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${button.variant === 'solid'
+                      ? 'bg-white text-gray-900 hover:bg-gray-100'
+                      : 'border-2 border-white/60 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm'
+                    }`}
+                >
+                  {button.text}
+                  <ChevronRight className="w-3 h-3" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         style={{
           color: '#111',

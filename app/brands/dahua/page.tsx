@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Variants } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 import Dahua from "../../../public/brands/dubai.png"
 const accordionItems = [
   { id: 1, label: 'Network Cameras' },
@@ -45,10 +46,18 @@ export default function DahuaPage() {
     hidden: { opacity: 0, x: 60 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
-
+ const banner = {
+  subtitle: 'Security & Surveillance',
+  title: 'DAHUA',
+  tagline: 'Securing the Future with Advanced AI Video Technology.',
+  buttons: [
+    { text: 'View Solutions', variant: 'solid' },
+    { text: 'Get a Quote', variant: 'outline' }
+  ],
+  image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80', // Security camera themed image
+};
   return (
     <>
-      {/* STYLES FOR ANIMATION */}
       <style jsx>{`
         .accordion-body {
           display: grid;
@@ -76,7 +85,83 @@ export default function DahuaPage() {
         .accordion-header:hover {
           background-color: #eeeeee;
         }
+          /* Banner Animations */
+        .animate-fadeInUp {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+        .animation-delay-600 {
+          animation-delay: 0.6s;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+          
       `}</style>
+      <div className="relative w-full h-screen overflow-hidden bg-gray-900">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src={banner.image}
+              alt={banner.title}
+              fill
+              priority
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-800/10 to-slate-900/40" />
+          </div>
+
+          {/* Center Content */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
+            <div className="max-w-4xl mx-auto">
+              {/* Subtitle */}
+              <p className="text-white/90 text-sm md:text-base font-light tracking-wide mb-2 animate-fadeInUp">
+                {banner.subtitle}
+              </p>
+
+              {/* Main Title */}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wider mb-2 animate-fadeInUp animation-delay-200">
+                {banner.title}
+              </h1>
+
+              {/* Tagline */}
+              <p className="text-white text-base md:text-lg lg:text-xl font-normal mb-6 animate-fadeInUp animation-delay-400">
+                {banner.tagline}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center justify-center gap-3 animate-fadeInUp animation-delay-600">
+                {banner.buttons.map((button, btnIndex) => (
+                  <button
+                    key={btnIndex}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      button.variant === 'solid'
+                        ? 'bg-white text-gray-900 hover:bg-gray-100'
+                        : 'border-2 border-white/60 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm'
+                    }`}
+                  >
+                    {button.text}
+                    <ChevronRight className="w-3 h-3" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
       <div
         style={{
@@ -87,8 +172,6 @@ export default function DahuaPage() {
           padding: '0 40px 60px 40px',
         }}
       >
-        {/* HERO SECTION */}
-        {/* Container for Staggered Animation */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -102,7 +185,6 @@ export default function DahuaPage() {
             borderBottom: '1px solid #e0e0e0',
           }}
         >
-          {/* Left: Logo + Big Image */}
           <motion.div variants={heroImageVariants} style={{ flex: '0 0 480px' }}>
             <div
               style={{
@@ -131,8 +213,6 @@ export default function DahuaPage() {
               />
             </div>
           </motion.div>
-
-          {/* Right: Title + Paragraph */}
           <motion.div variants={heroContentVariants} style={{ flex: 1 }}>
             <h1
               style={{
@@ -166,8 +246,6 @@ export default function DahuaPage() {
             </p>
           </motion.div>
         </motion.div>
-
-        {/* SECTION 2: THE IMPERATIVE */}
         <motion.div
           variants={sectionVariants}
           initial="hidden"
@@ -203,8 +281,6 @@ export default function DahuaPage() {
             Choosing Dahua&apos;s Trusted CCTV Technology Makes Perfect Sense.
           </p>
         </motion.div>
-
-        {/* ACCORDION */}
         <motion.div
           variants={sectionVariants}
           initial="hidden"
@@ -263,8 +339,6 @@ export default function DahuaPage() {
                   ›
                 </span>
               </button>
-
-              {/* ANIMATED WRAPPER */}
               <div className={`accordion-body ${openItems[item.id] ? 'open' : ''}`}>
                 <div className="accordion-content">
                   <div
@@ -283,8 +357,6 @@ export default function DahuaPage() {
             </div>
           ))}
         </motion.div>
-
-        {/* SECTION 3: ELEVATING YOUR SURVEILLANCE */}
         <motion.div
           variants={sectionVariants}
           initial="hidden"
